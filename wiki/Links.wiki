@@ -1,0 +1,20 @@
+#summary Useful links to important resources
+#labels Featured
+
+= Links =
+
+== Flying platforms ==
+ * [http://code.google.com/p/aeroquad/ AeroQuad] - Opensource flight control platform based on Arduino. 
+
+== Android resources ==
+ * Hacking the kernel
+ * Serial-api
+ * Sensor documentation
+
+== 3/5V Converter (Android-Arduino interface) ==
+ * Instructables
+
+== Arduino ==
+ * Timers
+ * PID
+
