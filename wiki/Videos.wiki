@@ -1,0 +1,8 @@
+#labels Featured
+#Videos featuring AndroUAV tests and flights
+
+= Yaw correction + crash =
+
+<wiki:video url="http://www.youtube.com/watch?v=4IVFO2FVAOM"/>
+
+08 June 2010
