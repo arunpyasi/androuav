@@ -1,0 +1,28 @@
+# Introduction #
+
+Arduino is concurrently doing five things:
+  * Reading transmitter data from the receiver.
+  * Talking to the flight control computer of the helicopter
+  * Getting data from the Android device (sensors).
+  * Sending data to the Android device (telemetry and debugging)
+  * Working out the commands to send to the helicopter
+
+# Reading from receiver #
+
+Standard PPM (Pulse Position Modulation) is sent from the receiver. An interrupt is programmed to count the time between pulses for each digital input. Data is stored in ChannelIn[port](port.md) as an integer. Note that the range is approximately -500..500.
+
+# Talking to the flight control computer of the helicopter #
+
+Standard PPM is sent from the Arduino to whatever the FCC is. This ensures a wide compatibilty. Data is generated with Timer1 of the ATMEGA168/328 microcontroller. Data is sent constantly.
+
+# Getting data from the Android device (sensors) #
+
+Simple serial communication is used. Messages are sent in packets from Android. The first byte declares the type of message (1 = compass, 2 = GPS...). The rest depends on the type of message.
+
+# Sending data to the Android device (telemetry and debugging) #
+
+Because the serial port is being used, a great way to debug is the actual phone screen. Also, telemetry will be sent to the device and then to the Internet/WiFi network.
+
+# Working out the commands to send to the helicopter #
+
+Timer2 acts as a clock that triggers command calculation. It is user-configurable but a good rate is 10 times per second. Note that the algorithms are not executed each time a message is received because of a saturation risk. Also, PID calculations work better if a constant rate is used.
